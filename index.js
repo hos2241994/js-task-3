@@ -102,11 +102,15 @@ signUp.addEventListener('click',() =>{
 
 //LogIn
 logIn.addEventListener('click',() =>{
-    for(let x in usersArr){
-        if(usersArr[x].name === userName.value && usersArr[x].checkPassword(userPassword.value.trim())) {
-            customer = usersArr[x];
-            deleteValue();
-            customer.showProcess();
+    if(userName.value.trim() && 
+    userPassword.value.trim() &&
+    usersArr.length > 0){
+        for(let x in usersArr){
+            if(usersArr[x].name === userName.value && usersArr[x].checkPassword(userPassword.value.trim())) {
+                customer = usersArr[x];
+                deleteValue();
+                customer.showProcess();
+            }
         }
     }
 })
